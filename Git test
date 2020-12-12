@@ -2,3 +2,4 @@ ssh-keygen -t rsa –C “1664140918@qq.com”
 git config --global user.name "Peter"
 git config --global user.email "1664140918@qq.com"
 git config --list
+// test
