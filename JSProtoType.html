@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>原型链教程</title>
+<style type="text/css"></style>
+</head>
+<body>
+</body>
+    <!--
+        JS原型链
+        1. “[[Prototype]]”作为对象的内部属性，是不能被直接访问的。所以为了方便查看一个对象的原型，Firefox和Chrome中提供了__proto__这个非标准（不是所有浏览器都支持）的访问器
+        2. 在JavaScript的原型对象中，还包含一个”constructor”属性，这个属性对应创建所有指向该原型的实例的构造函数
+        3. 函数Function的实例，函数的prototype是Object的实例
+        4. Function.__proto__和Function.prototype相等
+        4.Object.prototype.__proto__指向null
+        
+    -->
+<script>
+function Test(){
+    this.name = 'Joanna'
+}
+
+Test.prototype.getName = function(){
+    return this.name;
+}
+
+var a = new Test();
+console.log(a.getName());
+
+// function myNew(fn){
+//     var obj = {};
+//     obj.
+// }
+
+</script>
+</html>

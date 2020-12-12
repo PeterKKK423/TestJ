@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>事件循环教程</title>
+<style type="text/css"></style>
+</head>
+<body>
+</body>
+<!--
+    // JS 是单线程
+    宏任务：script, setTimeOut, setInterval, setImmediate, I/O, UI rendering
+    微任务：promise, Object.observe, MutationObserver
+    任务优先级： process.nextTick > promise.then > setTimeOut > setImmediate
+    https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif
+-->
+
+<script>
+    setTimeout(function(){
+        console.log(2)
+    },0);
+
+    new Promise(function (reslove){
+        console.log(3);
+        reslove();
+        console.log(4);
+    }).then(function(){
+        console.log(5);
+    });
+
+    console.log(8);
+</script>
+</html>

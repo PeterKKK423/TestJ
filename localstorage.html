@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>localstorage教程</title>
+<style type="text/css"></style>
+</head>
+<body>
+</body>
+    <!--
+        在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，
+        解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，
+        localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。
+        目前所有的浏览器中都会把localStorage的值类型限定为string类型，这个在对我们日常比较常见的JSON对象类型需要一些转换
+        localStorage在浏览器的隐私模式下面是不可读取的
+        localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡
+        localStorage不能被爬虫抓取到
+        
+        sessionStorage 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
+    -->
+<script>
+
+function test1(){
+    if(!window.localStorage){
+        alert("浏览器支持localstorage");
+        return false;
+    }else{
+        var storage=window.localStorage;
+        //写入a字段
+        storage["a"]=1;
+        //写入b字段
+        storage.b=1;
+        //写入c字段
+        storage.setItem("c",3);
+        console.log(typeof storage["a"]);
+        console.log(typeof storage["b"]);
+        console.log(typeof storage["c"]);
+        console.log(storage["a"]);
+        console.log(storage["b"]);
+        console.log(storage["c"]);
+    }
+
+    var sessionStorage = window.sessionStorage;
+    sessionStorage["a"]=1;
+    //写入b字段
+    sessionStorage.b=1;
+    //写入c字段
+    sessionStorage.setItem("c",3);
+    console.log(typeof sessionStorage["a"]);
+    console.log(typeof sessionStorage["b"]);
+    console.log(typeof sessionStorage["c"]);
+    console.log(sessionStorage["a"]);
+    console.log(sessionStorage["b"]);
+    console.log(sessionStorage["c"]);
+}
+test1();
+    
+</script>
+</html>

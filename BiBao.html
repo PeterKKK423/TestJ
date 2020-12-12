@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>闭包教程</title>
+<style type="text/css"></style>
+</head>
+<body>
+</body>
+<!--
+	怎么产生闭包
+	1. 当一个嵌套的内部(子)函数引用了外部(父)函数的变量（函数）时，产生闭包
+	什么是闭包
+	1. 闭包就是嵌套的内部函数 X
+	2. 包含被引用变量（函数）的对象 √
+	// debug 方式查看
+	产生闭包条件
+	1. 函数嵌套
+	2. 内部函数引用外部函数的数据
+	3. 外部函数还没有被销毁（调用外部函数）
+-->
+<script type="text/javascript">
+	// var a = 3
+	function test1(){
+		var a = 2;
+		// var b = 10;
+		function test2(){ //必须执行函数定义 (定义即可产生闭包)
+			console.log(a);
+		}
+		// return test2;
+	}
+	// var t = test1();
+	// t();
+	// 面试题
+	// js在es6新增块级作用域概念
+	// var arr = []
+	// for(var i = 0; i < 3; i++){
+	// 	arr[i] = function(){
+	// 		console.log(i);
+	// 	}
+	// }
+	// arr[0]();
+	// arr[1]();
+	// arr[2]();
+
+	// function fun1() {
+	// 	let n = 5;
+	// 	if (true) {
+	// 		let n = 10;
+	// 	}
+	// 	console.log(n); // 5
+	// }
+
+	// 闭包作用
+	// 让我们在全局作用域中访问局部变量
+	// 让局部变量一直驻留在计算机的内存中
+
+	function createWelcome(name) {
+		var action="welcome:"
+		function print (name){
+			console.log(action+name);
+		}
+		return print;
+	}
+	var print=createWelcome()
+	var action="kill:"
+	print("Tom")
+	//某一天我要用一下这个接口功能，打印一下“welcome:Tom”，但不幸的是我的运行环境里也定义了一个action变量，它的值是“kill:”
+
+	
+
+</script>
+</html>
